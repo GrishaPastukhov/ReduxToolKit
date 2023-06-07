@@ -1,13 +1,9 @@
 import React from "react";
 import "./App.css";
 import { useDispatch, useSelector, useStore } from "react-redux";
-import {
-  addCashAction,
-  addUserAction,
-  changeNickAction,
-  getCashAction,
-  removeUserAction,
-} from "./store/actions";
+import { GET_CASH, ADD_CASH } from "./store/cashReducer";
+import { CHANGE_NICKNAME } from "./store/nickReducer";
+import { ADD_USER, REMOVE_USER } from "./store/usersReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,23 +15,23 @@ function App() {
   console.log(store.getState());
 
   const addCash = (cash: number) => {
-    dispatch(addCashAction(cash));
+    dispatch(ADD_CASH(cash));
   };
 
   const getCash = (cash: number) => {
-    dispatch(getCashAction(cash));
+    dispatch(GET_CASH(cash));
   };
 
   const changeNick = (nick: string) => {
-    dispatch(changeNickAction(nick));
+    dispatch(CHANGE_NICKNAME(nick));
   };
 
   const addUser = (user: string) => {
-    dispatch(addUserAction(user));
+    dispatch(ADD_USER(user));
   };
 
   const removeUser = (user: string) => {
-    dispatch(removeUserAction(user));
+    dispatch(REMOVE_USER(user));
   };
 
   return (
